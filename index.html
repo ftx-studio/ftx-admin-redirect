@@ -23,12 +23,14 @@
   </div>
 
   <script>
-    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxfmr6pFSYV0s9mY44asYodydTo5gpTMjuyhQcLHAxJfPbXEQ9op9WPnluwhWl7vUlXiw/exec';
+    // ❶ Replace this with your Web App's "EXECUTE AS ME" URL:
+    const SCRIPT_URL = 'https://script.google.com/macros/s/YOUR_DEPLOYMENT_ID_HERE/exec';
+
     document.getElementById('codeForm').addEventListener('submit', e => {
       e.preventDefault();
       const code = document.getElementById('codeInput').value.trim();
-      // send user to the Web App, passing the code as a query‐param
-      window.location.href = SCRIPT_URL + '?page=Dashboard&code=' + encodeURIComponent(code);
+      // ❷ Redirect to the Web App, passing the code and page=Dashboard
+      window.location.href = `${SCRIPT_URL}?page=Dashboard&code=${encodeURIComponent(code)}`;
     });
   </script>
 </body>
