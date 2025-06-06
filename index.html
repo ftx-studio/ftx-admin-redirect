@@ -1,13 +1,35 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta http-equiv="refresh" content="0;url=https://script.google.com/macros/s/AKfycbxfmr6pFSYV…/exec">
-  <title>Redirecting to FTX Admin Login…</title>
-  <script>
-    window.location.replace("https://script.google.com/macros/s/AKfycbxfmr6pFSYV…/exec");
-  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>FTX Admin Access</title>
+  <style>
+    body { font-family:sans-serif; display:flex; align-items:center; justify-content:center; height:100vh; margin:0; background:#f5f5f5 }
+    .card { background:#fff; padding:2rem; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.1); text-align:center; width:320px }
+    input, button { font-size:1rem; padding:0.5rem; margin-top:1rem; width:100%; }
+    button { cursor:pointer; background:#00162b; color:#fff; border:none; border-radius:4px }
+    .error { color:red; margin-top:0.5rem; display:none }
+  </style>
 </head>
 <body>
-  <p>Redirecting to FTX Admin Login… If you are not redirected automatically, <a href="https://script.google.com/macros/s/AKfycbxfmr6pFSYV…/exec">click here</a>.</p>
+  <div class="card">
+    <h2>Enter Access Code</h2>
+    <form id="codeForm">
+      <input type="password" id="codeInput" placeholder="Access code…" required>
+      <button type="submit">Continue</button>
+      <div id="errorMsg" class="error">Invalid code</div>
+    </form>
+  </div>
+
+  <script>
+    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxfmr6pFSYV0s9mY44asYodydTo5gpTMjuyhQcLHAxJfPbXEQ9op9WPnluwhWl7vUlXiw/exec';
+    document.getElementById('codeForm').addEventListener('submit', e => {
+      e.preventDefault();
+      const code = document.getElementById('codeInput').value.trim();
+      // send user to the Web App, passing the code as a query‐param
+      window.location.href = SCRIPT_URL + '?page=Dashboard&code=' + encodeURIComponent(code);
+    });
+  </script>
 </body>
 </html>
