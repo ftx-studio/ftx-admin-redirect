@@ -1,29 +1,24 @@
+<!DOCTYPE html>
+<html>
 <head>
-  <!-- Favicon -->
-<link rel="icon" href="/icons/icon-192.png" type="image/png">
-
-<!-- PWA Manifest -->
-<link rel="manifest" href="/manifest.json">
-
-  <link rel="manifest" href="/manifest.json">
-  <meta name="theme-color" content="#00162b">
-  <meta http‐equiv="refresh" content="0;url=https://script.google.com/macros/s/AKfycbxfmr6pFSYV0s9mY44asYodydTo5gpTMjuyhQcLHAxJfPbXEQ9op9WPnluwhWl7vUlXiw/exec?page=LoginPage">
-  <link rel="icon" type="image/png" href="/icon-192.png">
-  <title>Redirecting…</title>Add commentMore actions
-  <script>
-    // Fallback JS redirect if meta‐refresh is not enabled
-    window.location.replace("https://script.google.com/macros/s/AKfycbxfmr6pFSYV0s9mY44asYodydTo5gpTMjuyhQcLHAxJfPbXEQ9op9WPnluwhWl7vUlXiw/exec?page=LoginPage");
-  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FTX Admin Portal</title>
 </head>
 <body>
-  <p>Redirecting to login…</p>
-  <script>
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/sw.js')
-      .then(reg => console.log('SW registered'))
-      .catch(err => console.error('SW registration failed', err));
-  }
-</script>
+  <h2>Welcome to FTX Studio Admin</h2>
+  <form id="codeForm">
+    <input type="password" id="codeInput" placeholder="Enter code" required />
+    <button type="submit">Continue</button>
+  </form>
 
+  <script>
+    const CODE_API = "https://script.google.com/macros/s/AKfycbxf.../exec";
+    document.getElementById("codeForm").addEventListener("submit", (e) => {
+      e.preventDefault();
+      const code = document.getElementById("codeInput").value;
+      window.location.href = `${CODE_API}?page=Dashboard&code=${encodeURIComponent(code)}`;
+    });
+  </script>
 </body>
 </html>
