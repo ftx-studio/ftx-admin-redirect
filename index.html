@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Redirecting…</title>
 
-  <!-- Google Fonts + FontAwesome (same look as your login) -->
+  <!-- Google Fonts + FontAwesome -->
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
     rel="stylesheet"
@@ -16,44 +16,58 @@
   />
 
   <style>
-    html, body {
+    * {
+      box-sizing: border-box;
       margin: 0;
+      padding: 0;
+    }
+    html, body {
       height: 100%;
       font-family: "Inter", sans-serif;
       background: linear-gradient(135deg, #00162b 0%, #34495e 100%);
+      color: #fff;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #fff;
     }
-
+    .container {
+      text-align: center;
+      animation: fadeIn 0.5s ease-out;
+    }
     .spinner {
-      font-size: 1.5rem;
+      font-size: 2rem;
+      margin-bottom: 1rem;
       animation: spin 1s linear infinite;
     }
-    @keyframes spin { to { transform: rotate(360deg) } }
-
-    .message {
-      text-align: center;
+    @keyframes spin {
+      to { transform: rotate(360deg); }
     }
-    .message h2 {
-      margin-bottom: 1rem;
+    .message {
+      font-size: 1.25rem;
       font-weight: 600;
+    }
+    .subtext {
+      margin-top: 0.5rem;
+      font-size: 0.9rem;
+      opacity: 0.8;
     }
   </style>
 
-  <!-- 1) Meta‐refresh fallback -->
+  <!-- Meta‐refresh fallback -->
   <meta http-equiv="refresh"
-        content="0; url=https://script.google.com/macros/s/AKfycbxfmr6pFSYV0s9mY44asYodydTo5gpTMjuyhQcLHAxJfPbXEQ9op9WPnluwhWl7vUlXiw/exec?page=LoginPage" />
+        content="0;url=https://script.google.com/macros/s/AKfycbxfmr6pFSYV0s9mY44asYodydTo5gpTMjuyhQcLHAxJfPbXEQ9op9WPnluwhWl7vUlXiw/exec?page=LoginPage" />
 </head>
 <body>
-  <div class="message">
-    <div class="spinner"><i class="fas fa-spinner"></i></div>
-    <h2>Redirecting to login…</h2>
+  <div class="container">
+    <div class="spinner">
+      <i class="fas fa-spinner"></i>
+    </div>
+    <div class="message">Redirecting to login…</div>
+    <div class="subtext">If you’re not redirected automatically, please <a href="?page=LoginPage" style="color:#ffa112; text-decoration:underline;">click here</a>.</div>
   </div>
 
   <script>
-    // 2) JS redirect (in case meta-refresh is blocked)
+    // JS redirect as backup
     window.location.replace(
       "https://script.google.com/macros/s/AKfycbxfmr6pFSYV0s9mY44asYodydTo5gpTMjuyhQcLHAxJfPbXEQ9op9WPnluwhWl7vUlXiw/exec?page=LoginPage"
     );
